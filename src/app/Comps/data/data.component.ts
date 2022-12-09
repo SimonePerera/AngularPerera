@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { miLista } from 'src/app/models/lista.model.ts';
+import { Component, OnInit } from '@angular/core';
+import { Estudiantes } from 'src/app/models/compartido/compartido.module';
 
 @Component({
   selector: 'app-data',
@@ -7,12 +7,16 @@ import { miLista } from 'src/app/models/lista.model.ts';
   styleUrls: ['./data.component.css']
 })
 export class DataComponent implements OnInit {
-  Resultados: miLista[] = [
-    new miLista('Zapateria de Lourdes','Lourdes',9,true),
-    new miLista('Verduleria las flroes','Mirta',5,false),
-    new miLista('Cosmetica Perez','Maria',6,true),
-    new miLista('Mecainca para todos','Rosa',10,true),
+  Resultados: Estudiantes[] = [
+    new Estudiantes('proyectoLourdesF','Lourdes',9,true),
+    new Estudiantes('ProyectoFloresMirta','Mirta',5,false),
+    new Estudiantes('ProyectoMariaGutierrez','Maria',6,true),
+    new Estudiantes('ProyectoRPmerceria','Rosa',10,true),
   ]
+  
   constructor() {}
-  ngOnInit() : void {}
+  ngOnInit(): void {
+      
+  }
 }
+

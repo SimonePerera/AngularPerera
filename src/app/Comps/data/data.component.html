@@ -1,18 +1,18 @@
-<table class="table table-dark table-hover">
-    <thead>
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Dueño</th>
-          <th scope="col">Nota</th>
-          <th scope="col">Resultado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr [ngClass]="miLista.Aprobado ? table.info : table.Warning" *ngFor="let miLista of Rsultados">
-          <th scope="row">{{miLista.Nombre}}</th>
-          <td>{{miLista.Dueño}}</td>
-          <td>{{miLista.Nota}}</td>
-          <td>{{miLista.Aprobado}}</td>
-        </tr>
-      </tbody>
+<table class="table table-hover">
+  <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">proyecto</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Aprobado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]="Estudiantes.Aprobado ? 'table-info' : 'table-warning' " *ngFor="let Estudiantes of Resultados">
+        <th scope="row">{{Estudiantes.Nombre}}</th>
+        <td>{{Estudiantes.proyecto}}</td>
+        <td>{{Estudiantes.Nota}}</td>
+        <td>{{Estudiantes.Aprobado}}</td>
+      </tr>
+    </tbody>
 </table>
