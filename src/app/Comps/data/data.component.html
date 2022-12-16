@@ -1,18 +1,29 @@
-<table class="table table-hover">
-  <thead>
-      <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">proyecto</th>
-        <th scope="col">Nota</th>
-        <th scope="col">Aprobado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr [ngClass]="Estudiantes.Aprobado ? 'table-info' : 'table-warning' " *ngFor="let Estudiantes of Resultados">
-        <th scope="row">{{Estudiantes.Nombre}}</th>
-        <td>{{Estudiantes.proyecto}}</td>
-        <td>{{Estudiantes.Nota}}</td>
-        <td>{{Estudiantes.Aprobado}}</td>
-      </tr>
-    </tbody>
-</table>
+<main>
+  <div style="height:30vh;">
+  </div>
+  <div class="card ordenado">
+    <form [formGroup] = "reviewForm">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input [formControl]="mailController" type="email form-control" class="form-control" id="exampleInputEmail1" >
+        <div id="emailHelp" class="form-text">No compartiremos tu información con nadie más</div>
+        <small *ngIf="mailController.errors?.['required']" class="text-danger">
+          No puede estar vacio
+        </small>
+        <small *ngIf="mailController.errors?.['DeValid']"  class="text-danger">
+          No puede ser el mail corporativo
+        </small>
+        <small *ngIf="mailController.errors?.['email']"  class="text-danger">
+          No tiene formato mail
+        </small>
+      </div>
+      <label for="inputPassword5" class="form-label">Reseña</label>
+      <input [formControl]="descripcionController" type="password form-control" id="inputPassword5" class="form-control" >
+      <small *ngIf="descripcionController.errors?.['minLength']"  class="text-danger">
+        Debe incluir mas de 20 caracteres 
+      </small>
+      <!-- <pre>{{descripcionController.errors | json }}</pre> -->
+      <button type="submit" class="btn btn-dark mt-2">enviar</button>
+    </form>
+  </div>
+</main> 

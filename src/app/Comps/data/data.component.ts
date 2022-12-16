@@ -1,22 +1,26 @@
+import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { Estudiantes } from 'src/app/models/compartido/compartido.module';
+import { FormControl, FormGroup, ValidationErrors, Validator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.css']
 })
-export class DataComponent implements OnInit {
-  Resultados: Estudiantes[] = [
-    new Estudiantes('proyectoLourdesF','Lourdes',9,true),
-    new Estudiantes('ProyectoFloresMirta','Mirta',5,false),
-    new Estudiantes('ProyectoMariaGutierrez','Maria',6,true),
-    new Estudiantes('ProyectoRPmerceria','Rosa',10,true),
-  ]
-  
-  constructor() {}
-  ngOnInit(): void {
-      
-  }
-}
+export class DataComponent {
+  mailController = new FormControl('',[Validators.email, this.DeValid, Validators.required])
+  descripcionController = new FormControl('',[Validators.minLength(10)])
 
+  reviewForm= new FormGroup({
+    mail: this.mailController,
+    descripcion: this.descripcionController
+  })
+
+
+DeValid(control: FormControl){
+    if( control.value?.toLowerCase === 'jyj@mail.com' ){
+      return{thisValidat: true};
+    }
+      return null;
+}
+}
