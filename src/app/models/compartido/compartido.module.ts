@@ -9,21 +9,30 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class CompartidoModule { }
+
+export class CompartidoModule {  
+}
 export class Estudiantes { 
+  Id:String;
   Nombre : string;
-  proyecto : string;
+  Apellido : string;
+  mail:string;
   Nota : number;
-  Aprobado : boolean;
+  Inscripto : boolean;
   constructor(
+      Id : String,
       Nombre : string,
-      proyecto : string,
+      Apellido : string,
+      mail : string,
       Nota : number,
-      Aprobado : boolean,
+      Inscripto : boolean,
       ){
+      this.Id = Id;
       this.Nombre = Nombre;
-      this.proyecto = proyecto;
+      this.Apellido = Apellido;
+      this.mail = mail;
       this.Nota = Nota;
-      this.Aprobado = Aprobado;
+      this.Inscripto = Inscripto;
       }
+      
 }

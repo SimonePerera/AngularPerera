@@ -9,11 +9,11 @@ import { FormControl, FormGroup, ValidationErrors, Validator, Validators } from 
 })
 export class DataComponent {
   mailController = new FormControl('',[Validators.email, this.DeValid, Validators.required])
-  descripcionController = new FormControl('',[Validators.minLength(10)])
+  IDController = new FormControl('',[Validators.minLength(2)])
 
   reviewForm= new FormGroup({
     mail: this.mailController,
-    descripcion: this.descripcionController
+    idC: this.IDController
   })
 
 

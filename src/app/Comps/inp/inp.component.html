@@ -1,0 +1,21 @@
+<div style="height:5vh;">  </div>
+    <table class="table table-hover">
+        <thead >
+            <tr>
+              <th scope="col" appFuente>ID</th>
+              <th scope="col" appFuente>Nombre Completo</th>
+              <th scope="col" appFuente>Mail</th>
+              <th scope="col" appFuente>Nota</th>
+              <th scope="col" appFuente>Inscripto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr [ngClass]="Estudiantes.Inscripto? 'table-info' : 'table-warning' " *ngFor="let Estudiantes of Resultados">
+              <th scope="row">{{Estudiantes.Id}}</th>
+              <th>{{ Estudiantes | conversor }}</th>
+              <td >{{Estudiantes.mail}}</td>
+              <td>{{Estudiantes.Nota}}</td>
+              <td>{{Estudiantes.Inscripto}}</td>
+            </tr>
+          </tbody>
+      </table>
